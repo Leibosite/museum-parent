@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PCRF-SPR>
+<SvcCont>
+<![CDATA[
+<AppDataConsistencyReq>
+<DataType>
+${dataType}
+</DataType>
+<ConsistencyType>
+${consistencyType}
+</ConsistencyType>
+<ValidTimeStart>
+${validTimeStart}
+</ValidTimeStart>
+<ValidTimeEnd>
+${validTimeEnd}
+</ValidTimeEnd>
+<UserRange>
+${userRange}
+</UserRange>
+</AppDataConsistencyReq>
+]]>
+</SvcCont>
+</PCRF-SPR>

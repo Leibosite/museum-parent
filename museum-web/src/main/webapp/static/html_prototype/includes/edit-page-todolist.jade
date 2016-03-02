@@ -1,0 +1,73 @@
+.well
+	h2(style="position:relative")
+		|New Service Component
+		span.oper-block-title.btn-group
+			a.btn.btn-mini.btn-warning
+				span.icon-minus-sign.icon-white
+			a.btn.btn-mini.btn-danger
+				span.icon-trash.icon-white
+	hr
+	.TODO
+		h3 TODO
+		ul.margin-top-bottom.task-list
+			li.ok(title="Complete")
+				span.sign
+				|Config default EPS Bearer QoS
+				span.oper-block-list.btn-group(style="display:inline-block")		
+					a.btn.btn-mini(title="Edit",data-toggle="modal",href="#my-modal")
+						span.icon-pencil
+					a.btn.btn-mini(title="Disable")
+						span.icon-minus-sign
+					a.btn.btn-mini(title="Delete")
+						span.icon-trash
+				.complete_items
+					dl.dl-horizontal
+						dt Name:							
+						dd Bolin
+
+			div#disable_me
+				li 
+					span.sign
+					|Config QoS Info
+					span.oper-block-list
+						a.btn.btn-mini
+							span.icon-plus-sign
+				li Config usage mornitoring
+				li Config charging Info
+				li Config IP-CAN for prifile set
+
+#my-modal(class="modal fade")
+	form#js-validate(style="margin:0px")
+	.modal-header
+		a.close(data-dismiss="modal") ×
+		h3 Set XXX attributes
+	.modal-body
+		blockquote
+			h3 Tips:
+			p This function is used for blablablablablablablablablabla
+
+		//h4.margin-top-bottom-small Input attributes
+		ul.unstyled
+				
+				legend Config QoS
+				li
+					label Name
+					input.required(type="text")
+					.help-block This is name
+				li.control-group.error
+					label Name
+					input(type="text")
+					.help-inline Eror here
+
+				legend Config Base info
+				li
+					label Choose it
+					select.js-select
+						option a
+						option b
+	.modal-footer
+		a.btn(data-dismiss="modal") close
+		a.btn.btn-primary save
+
+
+

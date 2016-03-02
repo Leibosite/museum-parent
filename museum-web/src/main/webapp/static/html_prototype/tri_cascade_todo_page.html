@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/chosen.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.gentleSelect.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery-cron.css"/>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/chosen.jquery.js"></script>
+    <script type="text/javascript" src="../js/chosen.ajax.jquery.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/jquery.jqpagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.form.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/jquery.disable.1.0.js"></script>
+    <script type="text/javascript" src="../js/pma.js"></script>
+    <script type="text/javascript" src="../js/datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../js/timeHelper.js"></script>
+    <script type="text/javascript" src="../js/jquery-cron.js"></script>
+    <script type="text/javascript" src="../js/jquery.gentleSelect.js"></script>
+    <meta charset="utf-8"/>
+  </head>
+  <body class="container">
+    <div class="row-fluid margin-top-bottom">
+      <div style="padding:0 20px" class="pull-left"><img src="../img/top-logo.png" class="top-logo"/></div>
+      <div class="pull-left span10">
+        <h1>PCRF System</h1>
+        <div class="btn-group"><a class="btn"><i class="icon-home"></i></a><a class="btn">Policy Management</a><a class="btn">Subscription Configuration</a><a class="btn">PCEF Management</a><a class="btn">System Configuration</a><a class="btn"><i class="icon-off"></i>Exit</a></div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div style="padding: 8px 0;" class="span3 well">
+        <ul class="nav nav-list">
+          <li> <a href="a"> <span class="navi-item">Period</span><span class="navi-item-sub">Set Period policy</span></a></li>
+          <li class="divider"></li>
+          <li><a href="a"> <span class="navi-item">Descriptor File</span><span class="navi-item-sub">Manage Descriptor file</span></a></li>
+          <li><a href="a"> <span class="navi-item">PCC</span><span class="navi-item-sub">Manage PCC Rule</span></a></li>
+          <li class="divider"></li>
+          <li><a href="a"> <span class="navi-item">Threshold</span><span class="navi-item-sub">Build Threshold name list</span></a></li>
+          <li><a href="a"> <span class="navi-item">Metering</span><span class="navi-item-sub">Manage Metering</span></a></li>
+          <li><a href="a"> <span class="navi-item">Service Component</span><span class="navi-item-sub">Manage Service Component</span></a></li>
+          <li><a href="a"> <span class="navi-item">User Profile set</span><span class="navi-item-sub">Manage User Profile</span></a></li>
+        </ul>
+      </div>
+      <div class="span9">
+        <ul class="breadcrumb">
+          <li><a>Home<span class="divider">/</span></a></li>
+          <li>Service Component List</li>
+        </ul>
+        <div class="well">
+          <h2 style="position:relative">New Service Component<span class="oper-block-title btn-group"><a class="btn btn-mini btn-warning"><span class="icon-minus-sign icon-white"></span></a><a class="btn btn-mini btn-danger"><span class="icon-trash icon-white"></span></a></span></h2>
+          <hr/>
+          <div class="TODO">
+            <h3>TODO</h3>
+            <ul class="margin-top-bottom task-list">
+              <li title="Complete" class="ok"><span class="sign"></span>Config default EPS Bearer QoS<span style="display:inline-block" class="oper-block-list btn-group">		<a title="Edit" data-toggle="modal" href="#my-modal" class="btn btn-mini"><span class="icon-pencil"></span></a></span>
+                <!--ul.sub-list
+                <li><span class="spec">
+                    <label>Limit Group Name: </label>hh</span><span class="spec">
+                    <label>Status:</label>ok</span><span class="spec"><span style="display:inline-block" class="oper-block-list btn-group">		<a title="Edit" data-toggle="modal" href="#my-modal" class="btn btn-mini"><span class="icon-plus-sign"></span>&nbsp;Add Limit Info</a></span></span></li>
+                -->
+                <div class="complete_items">
+                  <dl class="dl-horizontal margin-top-bottom-small">
+                    <dt>Group 1:123</dt>
+                    <dd><span class="btn-group group-wrapper">		<a class="btn btn-mini">Add limit info</a></span>
+                      <table style="width:80%;background-color:white" class="table table-bordered table-condensed">
+                        <tr>
+                          <th>Limit Name</th>
+                          <th>Type</th>
+                          <th>Operation</th>
+                        </tr>
+                        <tr>
+                          <td>asdfasdf</td>
+                          <td>Limit By time</td>
+                          <td><a>Edit</a><a>Delete</a></td>
+                        </tr>
+                      </table>
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li title="Complete" class="ok"><span class="sign"></span>Config default EPS Bearer QoS<span style="display:inline-block" class="oper-block-list btn-group">		<a title="Edit" data-toggle="modal" href="#my-modal" class="btn btn-mini"><span class="icon-pencil"></span></a></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid"></div>
+  </body>
+</html>

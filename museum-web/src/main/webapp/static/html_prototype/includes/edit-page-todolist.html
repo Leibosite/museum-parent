@@ -1,0 +1,57 @@
+
+<div class="well">
+  <h2 style="position:relative">New Service Component<span class="oper-block-title btn-group"><a class="btn btn-mini btn-warning"><span class="icon-minus-sign icon-white"></span></a><a class="btn btn-mini btn-danger"><span class="icon-trash icon-white"></span></a></span></h2>
+  <hr/>
+  <div class="TODO">
+    <h3>TODO</h3>
+    <ul class="margin-top-bottom task-list">
+      <li title="Complete" class="ok"><span class="sign"></span>Config default EPS Bearer QoS<span style="display:inline-block" class="oper-block-list btn-group">		<a title="Edit" data-toggle="modal" href="#my-modal" class="btn btn-mini"><span class="icon-pencil"></span></a><a title="Disable" class="btn btn-mini"><span class="icon-minus-sign"></span></a><a title="Delete" class="btn btn-mini"><span class="icon-trash"></span></a></span>
+        <div class="complete_items">
+          <dl class="dl-horizontal">
+            <dt>Name:							</dt>
+            <dd>Bolin</dd>
+          </dl>
+        </div>
+      </li>
+      <div id="disable_me">
+        <li> <span class="sign"></span>Config QoS Info<span class="oper-block-list"><a class="btn btn-mini"><span class="icon-plus-sign"></span></a></span></li>
+        <li>Config usage mornitoring</li>
+        <li>Config charging Info</li>
+        <li>Config IP-CAN for prifile set</li>
+      </div>
+    </ul>
+  </div>
+</div>
+<div id="my-modal" class="modal fade">
+  <form id="js-validate" style="margin:0px"></form>
+  <div class="modal-header"><a data-dismiss="modal" class="close">×</a>
+    <h3>Set XXX attributes</h3>
+  </div>
+  <div class="modal-body">
+    <blockquote>
+      <h3>Tips:</h3>
+      <p>This function is used for blablablablablablablablablabla</p>
+    </blockquote>
+    <!--h4.margin-top-bottom-small Input attributes-->
+    <ul class="unstyled">
+      <li>
+        <label>Name</label>
+        <input type="text" class="required"/>
+        <div class="help-block">This is name</div>
+      </li>
+      <li class="control-group error">
+        <label>Name</label>
+        <input type="text"/>
+        <div class="help-inline">Eror here</div>
+      </li>
+      <li>
+        <label>Choose it</label>
+        <select class="js-select">
+          <option>a</option>
+          <option>b</option>
+        </select>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer"><a data-dismiss="modal" class="btn">close</a><a class="btn btn-primary">save</a></div>
+</div>

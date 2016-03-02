@@ -1,0 +1,20 @@
+doctype
+html
+	head
+		include includes/meta
+	body.container
+		.row-fluid.margin-top-bottom
+			include includes/header
+		.row-fluid
+			.span3.well(style="padding: 8px 0;")
+				include includes/sidebar
+			.span9
+				include includes/breadcrumb
+				.well
+					h2(style="position:relative")
+						|Policy List
+					hr
+					include includes/list-rule
+
+		.row-fluid
+

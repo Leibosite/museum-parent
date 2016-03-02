@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/chosen.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/chosen.jquery.js"></script>
+    <script type="text/javascript" src="../js/chosen.ajax.jquery.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/jquery.jqpagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.form.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/jquery.disable.1.0.js"></script>
+    <script type="text/javascript" src="../js/pma.js"></script>
+    <meta charset="utf-8">
+
+<style type="text/css">
+.comment-wrapper {
+	background: url("../img/line04.gif") repeat-y 287px 0;
+	overflow: hidden;
+	position: relative;
+}
+.comment-wrapper  ul > li{
+padding-left: 300px;
+}
+.comment-block{
+clear:both;
+width: 230px;
+left:30px;
+border:solid  rgb(204,204,204) 1px;
+background-color:#ffffff;
+position: absolute;
+display: none;
+height:60px;
+padding: 4px;
+border-radius: 4px;
+}
+</style>
+
+
+
+</head>
+  <body class="container">
+    <div class="row-fluid margin-top-bottom">
+      <div style="padding:0 20px" class="pull-left"><img src="../img/top-logo.png" class="top-logo"></div>
+      <div class="pull-left span10">
+        <h1>PCRF System</h1>
+        <div class="btn-group"><a class="btn"><i class="icon-home"></i></a><a class="btn">Policy Management</a><a class="btn">Subscription Configuration</a><a class="btn">PCEF Management</a><a class="btn">System Configuration</a><a class="btn"><i class="icon-off"></i>Exit</a></div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div style="padding: 8px 0;" class="span3 well ">
+          <ul class="nav nav-list">
+            <li> <a href="a"> <span class="navi-item">Period</span><span class="navi-item-sub">Set Period policy</span></a></li>
+            <li class="divider"></li>
+            <li><a href="a"> <span class="navi-item">Descriptor File</span><span class="navi-item-sub">Manage Descriptor file</span></a></li>
+            <li><a href="a"> <span class="navi-item">PCC</span><span class="navi-item-sub">Manage PCC Rule</span></a></li>
+            <li class="divider"></li>
+            <li><a href="a"> <span class="navi-item">Threshold</span><span class="navi-item-sub">Build Threshold name list</span></a></li>
+            <li><a href="a"> <span class="navi-item">Metering</span><span class="navi-item-sub">Manage Metering</span></a></li>
+            <li><a href="a"> <span class="navi-item">Service Component</span><span class="navi-item-sub">Manage Service Component</span></a></li>
+            <li><a href="a"> <span class="navi-item">User Profile set</span><span class="navi-item-sub">Manage User Profile</span></a></li>
+          </ul>
+      </div>
+      <div class="span9">
+        <ul class="breadcrumb">
+          <li><a>Home<span class="divider">/</span></a></li>
+          <li>Service Component List</li>
+        </ul>
+        <div class="well">
+          <h2 style="position:relative">New Service Component<span class="oper-block-title btn-group"><a class="btn btn-mini btn-warning">
+                <div class="icon-minus-sign icon-white"></div></a><a class="btn btn-mini btn-danger">
+                <div class="icon-trash icon-white"></div></a></span></h2>
+          <hr>
+          <form id="js-validate">
+            <div class="well-small well well-bgwhite">
+              <blockquote>
+                <h3>Tips:</h3>
+                <p>This function is used for blablablablablablablablablabla</p>
+              </blockquote>
+              <!--h4.margin-top-bottom-small Input attributes-->
+              <div  class="comment-wrapper">
+                <ul class="unstyled ">
+                  <li>
+                    <div class="comment-block" >TIP:</div>
+                    <label>Name</label>
+                    <input type="text" class="required">
+                    <div class="help-block">This is name</div>
+             
+                  </li>
+                  <li class="control-group error">
+                    <label>Name</label>
+                    <input type="text">
+                  </li>
+                  
+                         <li class="control-group error">
+                    <div class="comment-block" >TIP:</div>
+                    <label>Name</label>
+                    <input type="text">
+                  </li>
+                  
+                         <li class="control-group error">
+                    <div class="comment-block" >TIP:</div>
+                    <label>Name</label>
+                    <input type="text">
+                  </li>
+                  
+                         <li class="control-group error">
+                    <div class="comment-block" >TIP:</div>
+                    <label>Name</label>
+                    <input type="text">
+                  </li>
+                  
+                         <li class="control-group error">
+                    <div class="comment-block" >TIP:</div>
+                    <label>Name</label>
+                    <input type="text">
+                  </li>
+                  <li>
+                    <div class="comment-block" >TIP:</div>
+                    <label>Choose it</label>
+                    <select class="js-select">
+                      <option>a</option>
+                      <option>b</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <script>
+            $(function(){
+            	$(".comment-wrapper").find("div.comment-block").each(function(){
+            		$(this).parent().css('background','url(../img/icon07.gif) no-repeat  283px 23px;');
+            		$(this).parent().css('background-size','10px 10px');
+            	});
+              $(".comment-wrapper").find("input,select").focus(function(){
+            	  $(".comment-block").hide();
+                  // $(this).siblings(".comment-block").fadeIn(1000);
+                   $(this).parent().siblings().css('background-size','10px 10px');
+                   $(this).parent().siblings().css('background-position','283px 23px');
+                   $(this).parent().css('background-size','15px 15px');
+                   $(this).parent().css('background-position','280px 20px');
+                   $(this).siblings(".comment-block").slideDown();
+                });
+            });
+            </script>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-large btn-primary">Submit</button>
+              <button class="btn btn-large">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid"></div>
+  </body>
+</html>

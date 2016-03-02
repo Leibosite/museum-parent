@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>museum-parent</artifactId>
+		<groupId>com.qingruan.museum</groupId>
+		<version>4.0.0</version>
+	</parent>
+	<artifactId>museum-dao</artifactId>
+	<version>1.0.0</version>
+	<name>Museum :: Module :: Dao</name>
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<!-- 主要依赖库的版本定义 -->
+		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+		<jdbc.driver.version>5.1.21</jdbc.driver.version>
+		<springside.version>4.3.0-SNAPSHOT</springside.version>
+	</properties>
+
+	<!-- 设定插件仓库, 如有Nexus私服, 取消注释并指向正确的服务器地址. <pluginRepositories> <pluginRepository> 
+		<id>nexus</id> <name>Team Nexus Repository</name> <url>http://localhost:8081/nexus/content/groups/public</url> 
+		<snapshots> <enabled>false</enabled> </snapshots> </pluginRepository> </pluginRepositories> -->
+
+	<!-- 依赖项定义 -->
+	<dependencies>
+		<!-- SPRINGSIDE -->
+		<dependency>
+			<groupId>org.springside</groupId>
+			<artifactId>springside-core</artifactId>
+		</dependency>
+		<!-- 清软 begin -->
+		<dependency>
+			<groupId>com.qingruan.museum.</groupId>
+			<artifactId>museum-framework</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-domain</artifactId>
+		</dependency>
+			<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-nosql</artifactId>
+		</dependency>
+		<!-- 清软 end -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<!-- hibernate + jpa + cache begin -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+		</dependency>
+
+		<!-- hibernate + jpa + cache end -->
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+
+		<!-- jdbc begin -->
+		<dependency>
+			<groupId>${jdbc.driver.groupId}</groupId>
+			<artifactId>${jdbc.driver.artifactId}</artifactId>
+			<version>${jdbc.driver.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- 需要上提到parent -->
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+		</dependency>
+		<!-- <dependency> <groupId>org.assertj</groupId> <artifactId>assertj-core</artifactId> 
+			<scope>compile</scope> </dependency> -->
+		<!-- jdbc end -->
+
+		<!-- javax.validation begin -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<!-- javax.validation end -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+		</dependency>
+		<!-- LOGGING begin -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<!-- LOGGING end -->
+
+		<!-- test begin -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springside</groupId>
+			<artifactId>springside-core</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+		<!-- test end -->
+
+		<!-- utils begin -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+		<!-- utils end -->
+
+		<!-- json begin -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<!-- json end -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/*.properties</exclude>
+						<exclude>**/*.erm</exclude>
+						<exclude>**/hss.sql</exclude>
+						<exclude>**/logback.xml</exclude>
+						<exclude>**/applicationContext.xml</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<!-- source attach plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- enforcer, 规则统一定义在parent -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>enforce-banned-dependencies</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<bannedDependencies>
+										<includes>
+											<include>commons-logging:*</include>
+										</includes>
+									</bannedDependencies>
+								</rules>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

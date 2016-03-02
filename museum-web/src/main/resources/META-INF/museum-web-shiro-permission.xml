@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<app name="museum-admin">
+	<url path="/system/permission/view" filter="" roles="" permissions="AccessPermission:view" />
+	<url path="/system/permission/list" filter="" roles="" permissions="AccessPermission:query" />
+	<url path="/system/permission/edit" filter="" roles="" permissions="AccessPermission:update" />
+	<url path="/system/permission/delete" filter="" roles="" permissions="AccessPermission:delete" />
+	<url path="/system/permission/save" filter="" roles="" permissions="AccessPermission:create" />
+	<url path="/system/user/view" filter="" roles="" permissions="AccessUser:view" />
+	<url path="/system/user/list" filter="" roles="" permissions="AccessUser:query" />
+	<url path="/system/user/edit" filter="" roles="" permissions="AccessUser:update" />
+	<url path="/system/user/delete" filter="" roles="" permissions="AccessUser:delete" />
+	<url path="/system/user/save" filter="" roles="" permissions="AccessUser:create" />
+	<url path="/system/group/view" filter="" roles="" permissions="AccessGroup:view" />
+	<url path="/system/group/list" filter="" roles="" permissions="AccessGroup:query" />
+	<url path="/system/group/ledit" filter="" roles="" permissions="AccessGroup:update" />
+	<url path="/system/group/delete" filter="" roles="" permissions="AccessGroup:delete" />
+	<url path="/system/group/save" filter="" roles="" permissions="AccessGroup:create" />
+	<url path="/pma/task/view" filter="" roles="" permissions="Task:view" />
+	<url path="/pma/task/list" filter="" roles="" permissions="Task:query" />
+	<url path="/pma/task/edit" filter="" roles="" permissions="Task:update" />
+	<url path="/pma/task/delete" filter="" roles="" permissions="Task:delete" />
+	<url path="/pma/task/save" filter="" roles="" permissions="Task:create" />
+	<url path="/pma/policygroup/view" filter="" roles="" permissions="PolicyGroup:view" />
+	<url path="/pma/policygroup/list" filter="" roles="" permissions="PolicyGroup:query" />
+	<url path="/pma/policygroup/edit" filter="" roles="" permissions="PolicyGroup:update" />
+	<url path="/pma/policygroup/delete" filter="" roles="" permissions="PolicyGroup:delete" />
+	<url path="/pma/policygroup/save" filter="" roles="" permissions="PolicyGroup:create" />
+	<url path="/sms/cell/view" filter="" roles="" permissions="Cell:view" />
+	<url path="/sms/cell/list" filter="" roles="" permissions="Cell:query" />
+	<url path="/sms/cell/edit" filter="" roles="" permissions="Cell:update" />
+	<url path="/sms/cell/delete" filter="" roles="" permissions="Cell:delete" />
+	<url path="/sms/cell/save" filter="" roles="" permissions="Cell:create" />
+	
+	<url path="/sms/terminal/view" filter="" roles="" permissions="Terminal:view" />
+	<url path="/sms/terminal/list" filter="" roles="" permissions="Terminal:query" />
+	<url path="/sms/terminal/edit" filter="" roles="" permissions="Terminal:update" />
+	<url path="/sms/terminal/delete" filter="" roles="" permissions="Terminal:delete" />
+	<url path="/sms/terminal/save" filter="" roles="" permissions="Terminal:create" />
+	
+	<url path="/sms/template/view" filter="" roles="" permissions="SmsTemplate:view" />
+	<url path="/sms/template/list" filter="" roles="" permissions="SmsTemplate:query" />
+	<url path="/sms/template/edit" filter="" roles="" permissions="SmsTemplate:update" />
+	<url path="/sms/template/delete" filter="" roles="" permissions="SmsTemplate:delete" />
+	<url path="/sms/template/save" filter="" roles="" permissions="SmsTemplate:create" />
+	<url path="/subscriber/servicePackage/view" filter="" roles="" permissions="ServicePackage:view" />
+	<url path="/subscriber/servicePackage/list" filter="" roles="" permissions="ServicePackage:query" />
+	<url path="/subscriber/servicePackage/edit" filter="" roles="" permissions="ServicePackage:update" />
+	<url path="/subscriber/servicePackage/delete" filter="" roles="" permissions="ServicePackage:delete" />
+	<url path="/subscriber/servicePackage/save" filter="" roles="" permissions="ServicePackage:create" />
+	<url path="/subscriber/accountinfo/view" filter="" roles="" permissions="SubAccount:view" />
+	<url path="/subscriber/accountinfo/list" filter="" roles="" permissions="SubAccount:query" />
+	<url path="/subscriber/accountinfo/edit" filter="" roles="" permissions="SubAccount:update" />
+	<url path="/subscriber/accountinfo/delete" filter="" roles="" permissions="SubAccount:delete" />
+	<url path="/subscriber/accountinfo/save" filter="" roles="" permissions="SubAccount:create" />
+	<url path="/subscriber/userinfo/view" filter="" roles="" permissions="SubUser:view" />
+	<url path="/subscriber/userinfo/list" filter="" roles="" permissions="SubUser:query" />
+	<url path="/subscriber/userinfo/todo_list" filter="" roles="" permissions="SubUser:update" />
+	<url path="/subscriber/userinfo/delete" filter="" roles="" permissions="SubUser:delete" />
+	<url path="/subscriber/userinfo/save" filter="" roles="" permissions="SubUser:create" />
+	<url path="/subscriber/usertype/view" filter="" roles="" permissions="SubUserType:view" />
+	<url path="/subscriber/usertype/list" filter="" roles="" permissions="SubUserType:query" />
+	<url path="/subscriber/usertype/edit" filter="" roles="" permissions="SubUserType:update" />
+	<url path="/subscriber/usertype/delete" filter="" roles="" permissions="SubUserType:delete" />
+	<url path="/subscriber/usertype/save" filter="" roles="" permissions="SubUserType:create" />
+	
+	<url path="/subscriber/userlevel/view" filter="" roles="" permissions="SubUserLevel:view" />
+	<url path="/subscriber/userlevel/list" filter="" roles="" permissions="SubUserLevel:query" />
+	<url path="/subscriber/userlevel/edit" filter="" roles="" permissions="SubUserLevel:update" />
+	<url path="/subscriber/userlevel/delete" filter="" roles="" permissions="SubUserLevel:delete" />
+	<url path="/subscriber/userlevel/save" filter="" roles="" permissions="SubUserLevel:create" />
+	
+	<url path="/policy/mk/view" filter="" roles="" permissions="MonitoringKey:view" />
+	<url path="/policy/mk/list" filter="" roles="" permissions="MonitoringKey:query" />
+	<url path="/policy/mk/edit" filter="" roles="" permissions="MonitoringKey:update" />
+	<url path="/policy/mk/delete" filter="" roles="" permissions="MonitoringKey:delete" />
+	<url path="/policy/mk/save" filter="" roles="" permissions="MonitoringKey:create" />
+	
+	<url path="/policy/pccgroup/view" filter="" roles="" permissions="PccGroup:view" />
+	<url path="/policy/pccgroup/list" filter="" roles="" permissions="PccGroup:query" />
+	<url path="/policy/pccgroup/edit" filter="" roles="" permissions="PccGroup:update" />
+	<url path="/policy/pccgroup/delete" filter="" roles="" permissions="PccGroup:delete" />
+	<url path="/policy/pccgroup/save" filter="" roles="" permissions="PccGroup:create" />
+	
+	<url path="/policy/serviceDataFlow/view" filter="" roles="" permissions="ServiceDataFlow:view" />
+	<url path="/policy/serviceDataFlow/list" filter="" roles="" permissions="ServiceDataFlow:query" />
+	<url path="/policy/serviceDataFlow/todo_list" filter="" roles="" permissions="ServiceDataFlow:update" />
+	<url path="/policy/serviceDataFlow/delete" filter="" roles="" permissions="ServiceDataFlow:delete" />
+	<url path="/policy/serviceDataFlow/save" filter="" roles="" permissions="ServiceDataFlow:create" />
+	
+	<url path="/policy/serviceComponent/view" filter="" roles="" permissions="ServiceComponent:view" />
+	<url path="/policy/serviceComponent/list" filter="" roles="" permissions="ServiceComponent:query" />
+	<url path="/policy/serviceComponent/todo_list" filter="" roles="" permissions="ServiceComponent:update" />
+	<url path="/policy/serviceComponent/delete" filter="" roles="" permissions="ServiceComponent:delete" />
+	<url path="/policy/serviceComponent/save" filter="" roles="" permissions="ServiceComponent:create" />
+	
+	<url path="/policy/ipcan/view" filter="" roles="" permissions="IpCan:view" />
+	<url path="/policy/ipcan/list" filter="" roles="" permissions="IpCan:query" />
+	<url path="/policy/ipcan/edit" filter="" roles="" permissions="IpCan:update" />
+	<url path="/policy/ipcan/delete" filter="" roles="" permissions="IpCan:delete" />
+	<url path="/policy/ipcan/save" filter="" roles="" permissions="IpCan:create" />
+	<url path="/gxa/qosrule/view" filter="" roles="" permissions="QoSRule:view" />
+	<url path="/gxa/qosrule/list" filter="" roles="" permissions="QoSRule:query" />
+	<url path="/gxa/qosrule/edit" filter="" roles="" permissions="QoSRule:update" />
+	<url path="/gxa/qosrule/delete" filter="" roles="" permissions="QoSRule:delete" />
+	<url path="/gxa/qosrule/save" filter="" roles="" permissions="QoSRule:create" />
+	<url path="/policy/qos/view" filter="" roles="" permissions="QoS:view" />
+	<url path="/policy/qos/list" filter="" roles="" permissions="QoS:query" />
+	<url path="/policy/qos/edit" filter="" roles="" permissions="QoS:update" />
+	<url path="/policy/qos/delete" filter="" roles="" permissions="QoS:delete" />
+	<url path="/policy/qos/save" filter="" roles="" permissions="QoS:create" />
+	<url path="/policy/pcc/view" filter="" roles="" permissions="PCC:view" />
+	<url path="/policy/pcc/list" filter="" roles="" permissions="PCC:query" />
+	<url path="/policy/pcc/todo_list" filter="" roles="" permissions="PCC:update" />
+	<url path="/policy/pcc/delete" filter="" roles="" permissions="PCC:delete" />
+	
+	<url path="/pma/event/view" filter="" roles="" permissions="Event:view" />
+	<url path="/pma/event/list" filter="" roles="" permissions="Event:query" />
+	<url path="/pma/event/edit" filter="" roles="" permissions="Event:update" />
+	<url path="/pma/event/delete" filter="" roles="" permissions="Event:delete" />
+	<url path="/pma/event/save" filter="" roles="" permissions="Event:create" />
+	
+	<url path="/pma/subuserfilter/view" filter="" roles="" permissions="SubUserFilter:view" />
+	<url path="/pma/subuserfilter/list" filter="" roles="" permissions="SubUserFilter:query" />
+	<url path="/pma/subuserfilter/edit" filter="" roles="" permissions="SubUserFilter:update" />
+	<url path="/pma/subuserfilter/delete" filter="" roles="" permissions="SubUserFilter:delete" />
+	<url path="/pma/subuserfilter/save" filter="" roles="" permissions="SubUserFilter:create" />
+	
+	<url path="/policy/pcc/save" filter="" roles="" permissions="PCC:create" />
+	<url path="/**" filter="user" roles="" permissions="" />
+	
+	<url path="/rx/af/edit" filter="" roles="" permissions="AFApplication:update"></url>
+	<url path="/rx/af/delete" filter="" roles="" permissions="AFApplication:delete"></url>
+	<url path="/rx/af/crate" filter="" roles="" permissions="AFApplication:create"></url>
+	<url path="/rx/af/list" filter="" roles="" permissions="AFApplication:list"></url>
+</app>

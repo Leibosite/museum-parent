@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<supervisor name="gxa">
+		<actor name="route" class="com.baoyun.pcrf.engine.actor.stack.SignalingDomainRouteActor"
+               dispatcher="gxa-route-dispatcher"
+               from-config="true">
+			<parameter name="zeroMQReceiveEndpoint" value="${gxa.receiveEndpoint}" />
+			
+			<forward name="CCR#INITIAL_REQUEST" ref-name="gxa.establish" />
+			<forward name="CCR#UPDATE_REQUEST" ref-name="gxa.update" />
+			<forward name="CCR#TERMINATION_REQUEST" ref-name="gxa.terminate" />
+		</actor>
+	
+		<actor name="send" class="com.baoyun.pcrf.engine.actor.DomainSendActor"
+               dispatcher="gxa-send-dispatcher"
+               from-config="true">
+			<parameter name="zeroMQSendEndpoint" value="${gxa.sendEndpoint}" />
+		</actor>
+	
+		<actor name="establish" class="com.baoyun.pcrf.engine.service.workflow.GxaEstablishWorkflow"
+               dispatcher="gxa-establish-dispatcher"
+               from-config="true" />
+	
+		<actor name="update" class="com.baoyun.pcrf.engine.service.workflow.GxaUpdateWorkflow"
+               dispatcher="gxa-update-dispatcher"
+               from-config="true" />
+	
+		<actor name="terminate" class="com.baoyun.pcrf.engine.service.workflow.GxaTerminateWorkflow"
+               dispatcher="gxa-terminate-dispatcher"
+               from-config="true" />
+	
+		<actor name="rar-synchronizer" class="com.baoyun.pcrf.engine.service.workflow.GxaRarSynchronizer"
+                dispatcher="gxa-rar-synchronizer-dispatcher"
+                from-config="true" />
+		
+		<actor name="task-rar" class="com.baoyun.pcrf.engine.service.workflow.GxaTaskRarWorkflow"
+                dispatcher="gxa-task-rar-dispatcher"
+                from-config="true" />
+	</supervisor>	
+</actor-system>

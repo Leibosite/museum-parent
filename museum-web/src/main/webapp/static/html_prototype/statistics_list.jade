@@ -1,0 +1,57 @@
+doctype 
+html
+	head
+		include includes/meta
+	body.container
+		.row-fluid.margin-top-bottom
+			include ./includes/header
+		.row-fluid
+			.span3.well(style="padding: 8px 0;")
+				include ./includes/sidebar
+			.span9
+				include ./includes/breadcrumb
+				.well
+					h2 Subscriber user List
+						a.btn.btn-mini.btn-primary(style="margin-left:20px")
+							i.icon-plus-sign.icon-white
+					hr
+					.well.well-small
+						h3 User management guide
+						ul.main_statistic
+							li
+								|There are 
+								a 40 
+								| users subscribed in this pcrf system.
+							li
+								|Group by user type in descent order:		
+								ul.unstyled.sub_statistic
+									li
+										|金牌: 
+										a  20
+									li
+										|金牌: 
+										a  15
+									li
+										|金牌: 
+										a  5
+									div(style="clear:both")
+							li
+								|Group by service package in descent order:		
+								ul.unstyled.sub_statistic
+									li
+										|金牌动感: 
+										a  20
+									li
+										|银牌XX: 
+										a  15
+									li
+										|铜牌！！: 
+										a  5
+									div(style="clear:both")
+					include ./includes/list-search-form
+		.row-fluid
+
+script
+	$('select').chosen({});
+	$('form input,.chzn-search input').popover({trigger:'focus',content:'sadfas',placement:'top',title:'XXXX'});
+

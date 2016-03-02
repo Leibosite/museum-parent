@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<global-forwards>
+		<!-- admin -->
+		<forward name="admin.back-to-stack" path="akka://pcrf/user/admin/send" />
+		<forward name="admin.rar-trigger" path="akka://pcrf/user/admin/rar-trigger" />
+		<forward name="admin.route" path="akka://pcrf/user/admin/route" />
+		<forward name="admin.session-heart-beat" path="akka://pcrf/user/admin/session-heart-beat" />
+		<forward name="admin.session-remove" path="akka://pcrf/user/admin/session-remove" />
+		<forward name="admin.task-trigger" path="akka://pcrf/user/admin/task-trigger" />
+		<forward name="admin.cmcc-rar"     path="akka://pcrf/user/admin/cmcc-rar" />	
+		
+		<!-- adminsub -->
+		<forward name="adminsub.license-abnormity" path="akka://pcrf/user/adminsub/license-abnormity" />
+		<forward name="adminsub.route" path="akka://pcrf/user/adminsub/route" />
+		<forward name="adminsub.rule" path="akka://pcrf/user/adminsub/rule" />
+		<forward name="adminsub.pccRuleModify" path="akka://pcrf/user/adminsub/pccRuleModify" />
+		<forward name="adminsub.sysconfig" path="akka://pcrf/user/adminsub/sysconfig" />
+		<forward name="adminsub.subUserModify" path="akka://pcrf/user/adminsub/subUserModify" />
+		<forward name="adminsub.servicePackageModify" path="akka://pcrf/user/adminsub/servicePackageModify" />
+		<forward name="adminsub.subAccountModify" path="akka://pcrf/user/adminsub/subAccountModify" />
+		<forward name="adminsub.userLevelModify" path="akka://pcrf/user/adminsub/userLevelModify" />
+		<forward name="adminsub.subUserTypeModify" path="akka://pcrf/user/adminsub/subUserTypeModify" />
+		
+		<!-- gx -->
+		<forward name="gx.back-to-stack" path="akka://pcrf/user/gx/send" />
+		<forward name="gx.establish" path="akka://pcrf/user/gx/establish" />
+		<forward name="gx.raa" path="akka://pcrf/user/gx/raa" />
+		<forward name="gx.rar-kick-off" path="akka://pcrf/user/gx/rar-kick-off" />
+		<forward name="gx.rar-ocs-control" path="akka://pcrf/user/gx/rar-ocs-control" />
+		<forward name="gx.rar-session-heart-beat" path="akka://pcrf/user/gx/rar-session-heart-beat" />
+		<forward name="gx.rar-synchronizer" path="akka://pcrf/user/gx/rar-synchronizer" />
+		<forward name="gx.route" path="akka://pcrf/user/gx/route" />
+		<forward name="gx.task-rar" path="akka://pcrf/user/gx/task-rar" />
+		<forward name="gx.terminate" path="akka://pcrf/user/gx/terminate" />
+		<forward name="gx.update" path="akka://pcrf/user/gx/update" />
+		
+		<!-- gxa -->
+		<forward name="gxa.back-to-stack" path="akka://pcrf/user/gxa/send" />
+		<forward name="gxa.establish" path="akka://pcrf/user/gxa/establish" />
+		<forward name="gxa.update" path="akka://pcrf/user/gxa/update" />
+		<forward name="gxa.terminate" path="akka://pcrf/user/gxa/terminate" />
+		<forward name="gxa.rar-synchronizer" path="akka://pcrf/user/gxa/rar-synchronizer" />
+		<forward name="gxa.route" path="akka://pcrf/user/gxa/route" />
+		<forward name="gxa.task-rar" path="akka://pcrf/user/gxa/task-rar" />
+		
+		<!-- rx -->
+		<forward name="rx.asr" path="akka://pcrf/user/rx/asr" />
+		<forward name="rx.back-to-stack" path="akka://pcrf/user/rx/send" />
+		<forward name="rx.establish" path="akka://pcrf/user/rx/establish" />
+		<forward name="rx.rar-deactive-flow" path="akka://pcrf/user/rx/rar-deactive-flow" />
+		<forward name="rx.route" path="akka://pcrf/user/rx/route" />
+		<forward name="rx.terminate" path="akka://pcrf/user/rx/terminate" />
+		<forward name="rx.update" path="akka://pcrf/user/rx/update" />
+		<forward name="rx.report-usage-monitoring" path="akka://pcrf/user/rx/report-usage-monitoring" />
+		<forward name="rx.sta" path="akka://pcrf/user/rx/sta" />
+		
+		<!-- sy -->
+		<forward name="sy.back-to-stack" path="akka://pcrf/user/sy/send" />
+		<forward name="sy.rar-establish" path="akka://pcrf/user/sy/rar-establish" />
+		<forward name="sy.rar-stop" path="akka://pcrf/user/sy/rar-stop" />
+		<forward name="sy.report" path="akka://pcrf/user/sy/report" />
+		<forward name="sy.route" path="akka://pcrf/user/sy/route" />
+		<forward name="sy.sla" path="akka://pcrf/user/sy/sla" />
+		
+		<!-- log message send actor -->
+		<forward name="cdrmsg.send" path="akka://pcrf/user/cdrmsg/send" />
+		
+		<!-- sms send actor -->
+		<forward name="smssend.send" path="akka://pcrf/user/smssend/send" />
+	</global-forwards>
+</actor-system>

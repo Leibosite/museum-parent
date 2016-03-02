@@ -1,0 +1,23 @@
+ul.nav.nav-tabs(style="margin:0")
+	li.active
+		a(href="#home",data-toggle="tab") 首页
+	li
+		a(href="#profile",data-toggle="tab") 介绍
+	li
+		a(href="#messages",data-toggle="tab") 消息
+	li
+		a(href="#settings",data-toggle="tab") 设置
+.tab-content(style="border:1px solid #DDD;border-top:0px")
+	.tab-pane.active#home
+		.well
+			|asdf
+	.tab-pane#profile aaaa啦啦
+	.tab-pane#messages 啦啦vvv
+	.tab-pane#settings 啦啦xx
+
+script
+	$('.nav-tabs').bind('show', function(e) {
+		var pattern=/#.+/gi //use regex to get anchor(==selector)
+		var contentID = e.target.toString().match(pattern)[0]; //get anchor         
+		alert(contentID.replace('#',''));
+	});

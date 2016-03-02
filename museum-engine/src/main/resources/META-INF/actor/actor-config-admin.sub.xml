@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<supervisor name="adminsub">
+		<actor name="route" class="com.baoyun.pcrf.engine.actor.admin.AdminDomainSubActor">
+			<parameter name="zeroMQReceiveEndpoint" value="${admin.sub.receiveEndpoint}" />
+			<forward name="com.baoyun.pcrf.message.RuleUpdateMsg" ref-name="adminsub.rule" />
+			<forward name="com.baoyun.pcrf.message.LicenseAbnormityMsg" ref-name="adminsub.license-abnormity" />
+			<forward name="com.baoyun.pcrf.message.PcrfPccRuleModifyMsg" ref-name="adminsub.pccRuleModify" />
+			<forward name="com.baoyun.pcrf.message.SysConfigMsg" ref-name="adminsub.sysconfig" />
+			
+			<!-- 用户信息更改后清除缓存 -->
+			<forward name="com.baoyun.pcrf.message.SubUserModifyMsg" ref-name="adminsub.subUserModify" />
+			
+			<!-- ServicePackage更新后清除缓存 -->
+			<forward name="com.baoyun.pcrf.message.ServicePackageModifyMsg" ref-name="adminsub.servicePackageModify" />
+			
+			<!-- ServicePackage更新后清除缓存 -->
+			<forward name="com.baoyun.pcrf.message.SubAccountModifyMsg" ref-name="adminsub.subAccountModify" />
+			
+			<!-- ServicePackage更新后清除缓存 -->
+			<forward name="com.baoyun.pcrf.message.UserLevelModifyMsg" ref-name="adminsub.userLevelModify" />
+			
+			<!-- SubUserType更新后清除缓存 -->
+			<forward name="com.baoyun.pcrf.message.SubUserTypeModifyMsg" ref-name="adminsub.subUserTypeModify" />
+		</actor>	
+		
+		<actor name="rule" class="com.baoyun.pcrf.engine.service.handleMsg.RuleMsgHandler"></actor>
+		<actor name="pccRuleModify" class="com.baoyun.pcrf.engine.service.handleMsg.PccRuleModifyMsgHandler"></actor>	
+		<actor name="license-abnormity" class="com.baoyun.pcrf.engine.service.handleMsg.LicenseAbnormityMsgHandler"></actor>
+		<actor name="sysconfig" class="com.baoyun.pcrf.engine.service.handleMsg.SysConfigMsgHandler"></actor>
+		
+		<!-- 用户信息更改后清除缓存 -->
+		<actor name="subUserModify" class="com.baoyun.pcrf.engine.service.handleMsg.SubUserModifyMsgHandler"></actor>
+		
+		<!-- 用户信息更改后清除缓存 -->
+		<actor name="servicePackageModify" class="com.baoyun.pcrf.engine.service.handleMsg.ServicePackageModifyMsgHandler"></actor>
+		
+		<!-- 用户信息更改后清除缓存 -->
+		<actor name="subAccountModify" class="com.baoyun.pcrf.engine.service.handleMsg.SubAccountModifyMsgHandler"></actor>
+		
+		<!-- 级别更改后清除缓存 -->
+		<actor name="userLevelModify" class="com.baoyun.pcrf.engine.service.handleMsg.UserLevelModifyMsgHandler"></actor>
+		
+		<!-- SubUserType更改后清除缓存 -->
+		<actor name="subUserTypeModify" class="com.baoyun.pcrf.engine.service.handleMsg.SubUserTypeModifyMsgHandler"></actor>
+	</supervisor>
+</actor-system>

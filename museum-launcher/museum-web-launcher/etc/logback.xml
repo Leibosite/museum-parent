@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+	<jmxConfigurator />
+	<property name="LOG_HOME" value="/var/log/pcrf-admin" />
+	
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="localFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</pattern>
+		</encoder>
+		<file>${LOG_HOME}/pcrf-admin.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      	<fileNamePattern>${LOG_HOME}/pcrf-admin_%d{yyyyMMddHH}_%i.log.zip</fileNamePattern>
+      		<timeBasedFileNamingAndTriggeringPolicy
+            	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<maxFileSize>10MB</maxFileSize>
+     		</timeBasedFileNamingAndTriggeringPolicy>
+   		</rollingPolicy>
+	</appender>
+	
+	<appender name="smsSendFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</pattern>
+		</encoder>
+		<file>${LOG_HOME}/pcrf-admin_smssend.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      	<fileNamePattern>${LOG_HOME}/pcrf-admin_smssend_%d{yyyyMMddHH}_%i.log.zip</fileNamePattern>
+      		<timeBasedFileNamingAndTriggeringPolicy
+            	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<maxFileSize>10MB</maxFileSize>
+     		</timeBasedFileNamingAndTriggeringPolicy>
+   		</rollingPolicy>
+	</appender>
+	
+	<appender name="soapFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</pattern>
+		</encoder>
+		<file>${LOG_HOME}/pcrf-admin_soap.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      	<fileNamePattern>${LOG_HOME}/pcrf-admin_soap_%d{yyyyMMddHH}_%i.log.zip</fileNamePattern>
+      		<timeBasedFileNamingAndTriggeringPolicy
+            	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<maxFileSize>10MB</maxFileSize>
+     		</timeBasedFileNamingAndTriggeringPolicy>
+   		</rollingPolicy>
+	</appender>
+	
+	<appender name="ftpImportFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</pattern>
+		</encoder>
+		<file>${LOG_HOME}/pcrf-admin_ftpimp.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      	<fileNamePattern>${LOG_HOME}/pcrf-admin_ftpimp-%d{yyyyMMdd}_%i.log.zip</fileNamePattern>
+      		<timeBasedFileNamingAndTriggeringPolicy
+            	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<maxFileSize>10MB</maxFileSize>
+     		</timeBasedFileNamingAndTriggeringPolicy>
+   		</rollingPolicy>
+	</appender>
+	
+	<appender name="userBehaviorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</pattern>
+		</encoder>
+		<file>${LOG_HOME}/pcrf-admin_userBehaviorFile.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      	<fileNamePattern>${LOG_HOME}/pcrf-admin_userBehaviorFile-%d{yyyyMMddHH}_%i.log.zip</fileNamePattern>
+      		<timeBasedFileNamingAndTriggeringPolicy
+            	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<maxFileSize>10MB</maxFileSize>
+     		</timeBasedFileNamingAndTriggeringPolicy>
+   		</rollingPolicy>
+	</appender>
+	
+	<appender name="syslog" class="ch.qos.logback.classic.net.SyslogAppender">
+		<syslogHost>172.16.3.80</syslogHost>
+		<facility>LOCAL1</facility>
+		<suffixPattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %L - %msg %n</suffixPattern>
+	</appender>
+	
+	<!-- 短信发送日志       start -->
+	<logger name="com.baoyun.pcrf.bizman.sms.JxWebService" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="smsSendFile"/>
+	</logger>
+
+	<logger name="com.baoyun.pcrf.bizman.sms.GuangxiSmsClient" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="smsSendFile"/>
+	</logger>
+	<!-- 短信发送日志       end -->
+	
+	<!-- SOAP接口日志        start -->
+	<logger name="com.newpostcom.pcrf.bizman.ws.impl" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="soapFile"/>
+	</logger>
+	<!-- SOAP接口日志        end -->
+	
+	<!-- FTP批量导入 	start-->
+	<logger name="com.baoyun.pcrf.bizman.ftp" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="ftpImportFile"/>
+	</logger>
+	<!-- FTP批量导入 	end-->
+	
+	<!--用户操作行为日志 start  -->
+	<logger name="com.baoyun.pcrf.bizman" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="userBehaviorFile"/>
+	</logger>
+	
+	<logger name="com.baoyun.pcrf.admin.web.interceptors.OperatingLogInterceptor" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="userBehaviorFile"/>
+	</logger>
+	<!-- 用户操作行为日志 end -->
+		
+	<root level="INFO">
+		<appender-ref ref="localFile" />
+        <!--
+		<appender-ref ref="syslog"/>
+		-->
+	</root>
+</configuration>

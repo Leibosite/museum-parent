@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<supervisor name="sy">
+		<actor name="route" class="com.baoyun.pcrf.engine.actor.stack.SignalingDomainRouteActor"
+               dispatcher="sy-route-dispatcher"
+               from-config="true">
+			<parameter name="zeroMQReceiveEndpoint" value="${sy.receiveEndpoint}" />
+			
+			<forward name="RAA#INITIAL_REQUEST" ref-name="sy.sla" />
+			<forward name="CCR#UPDATE_REQUEST" ref-name="sy.report" />
+			<!-- 2014-04-18 增加 -->
+			<forward name="RAA#TERMINATION_REQUEST" ref-name="sy.rar-stop" />
+		</actor>
+	
+		<actor name="send" class="com.baoyun.pcrf.engine.actor.DomainSendActor"
+               dispatcher="sy-send-dispatcher"
+               from-config="true">
+			<parameter name="zeroMQSendEndpoint" value="${sy.sendEndpoint}" />
+		</actor>
+	
+		<actor name="sla" class="com.baoyun.pcrf.engine.service.workflow.SlaWorkflow"
+                dispatcher="sy-sla-dispatcher"
+                from-config="true"/>
+	
+		<actor name="report" class="com.baoyun.pcrf.engine.service.workflow.SyReportWorkflow"
+                dispatcher="sy-report-dispatcher"
+                from-config="true"/>
+	
+		<actor name="rar-establish" class="com.baoyun.pcrf.engine.service.workflow.SyRarEstablishWorkflow"
+                dispatcher="sy-rar-establish-dispatcher"
+                from-config="true"/>
+	
+		<actor name="rar-stop" class="com.baoyun.pcrf.engine.service.workflow.SyRarStopWorkflow"
+                dispatcher="sy-rar-stop-dispatcher"
+                from-config="true"/>
+	</supervisor>
+</actor-system>

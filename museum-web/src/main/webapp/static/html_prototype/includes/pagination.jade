@@ -1,0 +1,7 @@
+.pagination.input-prepend.input-append
+	a.first.btn(data-action="first",href="${pageUrl}?page=1")<<
+	a.previous.btn(data-action="previous",href="${pageUrl}?page=${pageObject.number}")<
+	input.span2(type="text",readonly="readonly")
+	a.next.btn(data-action="next",href="${pageUrl}?page=${pageObject.number+2}")>
+	a.last.btn(data-action="last",href="${pageUrl}?page=${pageObject.totalElements/pageObject.totalPages}")>>
+.clearfix

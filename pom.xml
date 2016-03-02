@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.qingruan</groupId>
+		<artifactId>parent</artifactId>
+		<version>4.0.0</version>
+		<relativePath />
+	</parent>
+	<groupId>com.qingruan.museum</groupId>
+	<artifactId>museum-parent</artifactId>
+	<name>Museum :: Module :: Parent</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<!-- qingruan 相关库的版本定义 -->
+		<museum-mobile-gateway.version>1.0.0</museum-mobile-gateway.version>
+		<museum-gateway-common.version>1.0.0</museum-gateway-common.version>
+		<museumnosql.version>1.0.0</museumnosql.version>
+		<museumgateway.version>1.0.0</museumgateway.version>
+		<museumdao.version>1.0.0</museumdao.version>
+		<museumdomain.version>1.0.0</museumdomain.version>
+		<museumweb.version>1.0.0</museumweb.version>
+		<museumengine.version>1.0.0</museumengine.version>
+		<museumframework.version>1.0.0</museumframework.version>
+		<framework.version>1.6.6</framework.version>
+		<museumpma.version>1.0.0</museumpma.version>
+		<museumagent.version>1.0.0</museumagent.version>
+		<museumhighcharts.version>1.0.0</museumhighcharts.version>
+		<jzmq.version>2.2.3-qingruan</jzmq.version>
+		<akka-spring.version>1.0.0</akka-spring.version>
+		<jetty.version>7.6.15.v20140411</jetty.version>
+		<framework-commons.version>1.7.0</framework-commons.version>
+		<framework-bizlog.version>1.5.1</framework-bizlog.version>
+		<framework-actor.version>1.6.8</framework-actor.version>
+		<framework-webserver.version>1.6.0</framework-webserver.version>
+		<framework-redis.version>1.6.1</framework-redis.version>
+		<hibernate-redis.version>1.6.0</hibernate-redis.version>
+		<!-- Plugin的属性 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+	<modules>
+		<module>museum-web</module>
+		<module>museum-engine</module>
+		<module>museum-dao</module>
+		<module>museum-domain</module>
+		<module>museum-framework</module>
+		<module>museum-pma</module>
+		<module>museum-agent</module>
+		<module>museum-highcharts</module>
+
+
+
+
+		<module>museum-gateway</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>qingruan</id>
+			<name>qingruan Nexus Repository</name>
+			<url>http://101.200.174.126:8081/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>qingruan Nexus Repository</name>
+			<url>http://101.200.174.126:8081/nexus/content/repositories/releases/</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>qingruan Nexus Repository</name>
+			<url>http://101.200.174.126:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<!-- 预定义依赖项的version,scope与exclusions,子项目中只需定义groupId 与 artifactId 即可 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- framework begin -->
+			<dependency>
+				<groupId>com.qingruan.framework</groupId>
+				<artifactId>framework-webserver</artifactId>
+				<version>${framework-webserver.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.framework</groupId>
+				<artifactId>framework-actor</artifactId>
+				<version>${framework-actor.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.framework</groupId>
+				<artifactId>framework-redis</artifactId>
+				<version>${framework-redis.version}</version>
+			</dependency>
+			<!-- framework end -->
+			<!-- qingruan begin 定义包含模块 -->
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-framework</artifactId>
+				<version>${museumframework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-pma</artifactId>
+				<version>${museumpma.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-dao</artifactId>
+				<version>${museumdao.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-domain</artifactId>
+				<version>${museumdomain.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-engine</artifactId>
+				<version>${museumengine.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-agent</artifactId>
+				<version>${museumagent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-highcharts</artifactId>
+				<version>${museumhighcharts.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-gateway</artifactId>
+				<version>${museumgateway.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum.gateway.common</groupId>
+				<artifactId>museum-gateway-common</artifactId>
+				<version>${museum-gateway-common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-nosql</artifactId>
+				<version>${museumnosql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.caucho</groupId>
+				<artifactId>hessian</artifactId>
+				<version>4.0.33</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.perf4j</groupId>
+				<artifactId>perf4j</artifactId>
+				<version>0.9.16</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.museum</groupId>
+				<artifactId>museum-web</artifactId>
+				<version>${museumweb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qingruan.akka</groupId>
+				<artifactId>akka-spring</artifactId>
+				<version>${akka-spring.version}</version>
+			</dependency>
+			<!-- jetty -->
+			<dependency>
+				<groupId>org.eclipse.jetty.aggregate</groupId>
+				<artifactId>jetty-webapp</artifactId>
+				<version>${jetty.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-jsp</artifactId>
+				<version>${jetty.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springside</groupId>
+				<artifactId>springside-core</artifactId>
+				<version>${springside.version}</version>
+				<classifier>tests</classifier>
+				<scope>test</scope>
+			</dependency>
+			<!-- TEST end -->
+			<!-- qingruan end -->
+		</dependencies>
+	</dependencyManagement>
+</project>

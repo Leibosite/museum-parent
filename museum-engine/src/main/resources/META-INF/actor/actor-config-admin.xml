@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<!-- 出现重启之后engine无法连接admin的问题，设置一个不断重连的Supervisor -->
+	<supervisor name="admin" class="com.baoyun.pcrf.engine.actor.AdminPipeSupervisor">
+		<actor name="route"
+			class="com.baoyun.pcrf.engine.actor.admin.AdminDomainRouteActor">
+			<parameter name="zeroMQReceiveEndpoint" value="${admin.receiveEndpoint}" />
+
+			<!--  add by sli for移动 第三方平台增量配置pcc规则-->
+			<forward name="com.baoyun.pcrf.message.cmcc.PolicyRequestModel"
+				ref-name="admin.cmcc-rar" />
+			<!-- end -->
+				
+			<forward name="com.baoyun.pcrf.message.RarTriggerMessage"
+				ref-name="admin.rar-trigger" />
+			<forward name="com.baoyun.pcrf.message.TaskTriggerMsg"
+				ref-name="admin.task-trigger" />
+			<forward name="com.baoyun.pcrf.message.SessionHeartBeatMsg"
+				ref-name="admin.session-heart-beat" />
+			<forward name="com.baoyun.pcrf.message.SessionRemoveMsg"
+				ref-name="admin.session-remove" />
+		</actor>
+
+		<actor name="send"
+			class="com.baoyun.pcrf.engine.actor.admin.AdminDomainSendActor">
+			<parameter name="zeroMQSendEndpoint" value="${admin.sendEndpoint}" />
+		</actor>
+
+		<!--  add by sli-->
+		<actor name="cmcc-rar" 
+			class="com.baoyun.pcrf.engine.service.handleMsg.CmccPolicyHandle">
+					
+		</actor>
+		<!-- end -->
+		<actor name="rar-trigger"
+			class="com.baoyun.pcrf.engine.service.handleMsg.RarTriggerHandler">
+			<forward name="kick-off" path="akka://pcrf-gx/user/rar-kick-off" />
+			<forward name="rar" path="akka://pcrf-gx/user/task-rar" />
+		</actor>
+
+		<actor name="task-trigger"
+			class="com.baoyun.pcrf.engine.service.handleMsg.TaskTriggerHandler">
+			<forward name="gx-task-rar" path="akka://pcrf-gx/user/task-rar" />
+		</actor>
+
+		<actor name="session-heart-beat"
+			class="com.baoyun.pcrf.engine.service.handleMsg.SessionHeartBeatMsgHandle">
+			<forward name="rar-session-heart-beat" path="akka://pcrf-gx/user/rar-session-heart-beat" />
+		</actor>
+
+		<actor name="session-remove"
+			class="com.baoyun.pcrf.engine.service.handleMsg.SessionRemoveMsgHandle"></actor>
+	</supervisor>
+</actor-system>

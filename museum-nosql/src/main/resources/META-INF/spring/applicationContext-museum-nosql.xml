@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+	default-lazy-init="true">
+
+	<context:component-scan base-package="com.qingruan.museum">
+		 <context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
+
+	</context:component-scan>
+	<bean id="properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="localOverride" value="true"></property>
+		<property name="ignoreResourceNotFound" value="true"></property>
+		<property name="locations">
+			<list>
+				<!-- <value>file:/etc/usmp/usmp.conf</value> <value>file:/etc/usmp.conf</value> -->
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="ShardedJedisSentinelPool"
+		class="com.qingruan.museum.nosql.redis.ShardedJedisSentinelPoolFactoryBean">
+		<property name="minIdleStr" value="${redis.pool.minIdle}" />
+		<property name="maxIdleStr" value="${redis.pool.maxIdle}" />
+		<property name="maxTotalStr" value="${redis.pool.maxTotal}" />
+		<property name="timeoutStr" value="${redis.timeout}" />
+		<property name="testOnBorrowStr" value="${redis.pool.testonborrow}" />
+		<property name="masterNames" value="${redis.sentinel.masterNames}" />
+		<property name="urls" value="${redis.sentinel.urls}" />
+	</bean>
+
+	<bean id="jedisSentinelTemplate"
+		class="com.qingruan.framework.redis.ShardedJedisSentinelPoolTemplate">
+		<constructor-arg ref="ShardedJedisSentinelPool" />
+		<property name="serializer">
+			<bean
+				class="com.qingruan.framework.redis.serializer.DefaultSerializer"></bean>
+		</property>
+	</bean>
+	
+	<!-- Redis消息队列 -->
+	<bean id="redisMQPushSender" class="com.qingruan.museum.framework.esb.redispushpop.RedisMQPushSender">
+		<property name="jedisSentinelTemplate" ref="jedisSentinelTemplate"></property>
+	</bean>
+	
+	<bean id="redisMQBlpopReceiver" class="com.qingruan.museum.framework.esb.redispushpop.RedisMQBlpopReceiver">
+		<property name="jedisSentinelTemplate" ref="jedisSentinelTemplate"></property>
+	</bean>
+
+	<bean id="noSqlClient"
+		class="com.qingruan.museum.nosql.nosql.support.JedisSentinelNoSqlClient">
+		<property name="template" ref="jedisSentinelTemplate"></property>
+	</bean>
+
+	<!-- JSR303 Validator定义 -->
+	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" 
+		/> -->
+	<!-- Spring 缓存配置 -->
+
+	<!-- 启用缓存注解功能，这个是必须的，否则注解不会生效. -->
+	<!-- <cache:annotation-driven cache-manager="redisCacheManager"/> <bean 
+		id="redisClient" class="com.qingruan.framework.data.redis.jedis.ShardedJedisSentinelClient"> 
+		<property name="jedisSentinelPools" ref="jedisSentinelPools" /> </bean> <bean 
+		id="redisCacheManager" class="com.qingruan.framework.data.redis.cache.RedisCacheManager"> 
+		<property name="redisClient" ref="redisClient"></property> </bean> -->
+</beans>

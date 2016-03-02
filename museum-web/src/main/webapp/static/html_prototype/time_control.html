@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/chosen.css">
+    <!--新增style start-->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.gentleSelect.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-cron.css">
+    <!--新增style end-->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/chosen.jquery.js"></script>
+    <script type="text/javascript" src="../js/chosen.ajax.jquery.js"></script>
+    
+    <script type="text/javascript" src="../js/jquery.jqpagination.js"></script>
+    <script type="text/javascript" src="../js/jquery.form.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/jquery.disable.1.0.js"></script>
+    <!--新增script start-->
+    <script type="text/javascript" src="../js/datepicker/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="../js/jquery.gentleSelect.js"></script>
+    <script type="text/javascript" src="../js/jquery-cron.js"></script>
+    <script type="text/javascript" src="../js/timeHelper.js"></script>
+    <!--新增script end-->
+    <script type="text/javascript" src="../js/pma.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <meta charset="utf-8">
+  </head>
+
+  <body class="container">
+   
+
+    <input type="text" id="endTime2" class="time_control3" value="2 * * * *">
+    <input type="hidden" value="timeChoose" id="key"/>
+
+  </body>
+  <script type="text/javascript">
+    // alert(($("#key").val().indexOf("bb") == 0));
+
+    $(".time_control3").timeHelperChoose({dateOptions:["day","month","cron"]});
+    // $('.cycle_type_select').bind('change', function(){
+    //     $('.time_control3').timeHelper({model:$('.cycle_type_select').val()});
+        //  $('.time_control').datetimepicker('remove');
+        //  $('.time_control').val('');
+        //  if($('.weekDaySelect')){
+        //     $('.weekDaySelect').detach();   
+        //  }
+         
+        //  $('.time_control').css({display:'inline-block'});
+        // if ('day' == $(this).val()) {
+
+        //     $('.time_control').datetimepicker({
+        //         language:'zh-CN',
+        //         startView:0,
+        //         format:'hh:ii',
+        //         minuteStep:10,
+        //         maxView:1
+        //     });
+        // }else if('week' == $(this).val()){
+        //     $('.time_control').before(weekDaySelect);
+        //     $('.time_control').css({display:'none'});
+        // }else if('month' == $(this).val()){
+        //     $('.time_control').datetimepicker({
+        //         language:'zh-CN',
+        //         startView:2,
+        //         format:'mm月dd日',
+        //         minuteStep:10,
+        //         maxView:2,
+        //         minView:2
+        //     });
+        // }else if('year' == $(this).val()){
+        //     $('.time_control').datetimepicker({
+        //         language:'zh-CN',
+        //         startView:1,
+        //         format:'mm月',
+        //         minuteStep:10,
+        //         maxView:3
+        //     });
+        // }
+        
+    // });
+
+
+
+
+
+    // $(document).ready(function(){
+    //     $('#cronSelect').cron({
+    //         useGentleSelect: true,
+    //         onChange:function(){
+    //             $('#cronValue').val($('#cronSelect').cron('value'));
+    //         }
+    //     });    
+    // })
+    
+    // $('.time_control2').datetimepicker({
+    //     language:'zh-CN',
+    //     startView:1,
+    //     format:'yyyy-mm-dd hh:ii',
+    //     minuteStep:10,
+    //     maxView:4
+    // });
+    // var weekDaySelect = '<select class="weekDaySelect">' + 
+    //                         '<option value="1">星期一</option>' +
+    //                         '<option value="2">星期二</option>' +
+    //                         '<option value="3">星期三</option>' +
+    //                         '<option value="4">星期四</option>' +
+    //                         '<option value="5">星期五</option>' +
+    //                         '<option value="6">星期六</option>' +
+    //                         '<option value="7">星期日</option>' +
+    //                     '</select>'
+    
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

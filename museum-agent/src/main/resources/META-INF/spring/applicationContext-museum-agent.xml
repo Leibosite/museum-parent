@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+	default-lazy-init="false">
+
+	<context:component-scan base-package="com.qingruan.museum">
+		<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Component" 
+			/> -->
+
+	</context:component-scan>
+	<bean id="springContextHolder"
+		class="com.qingruan.museum.framework.spring.utils.SpringContextHolder"
+		lazy-init="false"></bean>
+	<bean id="initialAgentSystem" class="com.qingruan.museum.agent.init.InitialAgentSystem"
+		scope="singleton" init-method="init" destroy-method="destory"
+		lazy-init="false">
+	</bean>
+
+</beans>

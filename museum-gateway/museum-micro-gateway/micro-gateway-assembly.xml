@@ -1,0 +1,46 @@
+<assembly xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/assembly-1.0.0.xsd">
+
+	<id>Museum-Micro-Gateway</id>
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<!-- 自身jar包 -->
+		<fileSet>
+			<outputDirectory>../../museum-micro-gateway-launcher/etc/lib</outputDirectory>
+			<directory>${project.build.directory}</directory>
+			<includes>
+				<include>${project.artifactId}-${project.version}.jar</include>
+			</includes>
+		</fileSet>
+
+		<!-- 依赖包 -->
+		<fileSet>
+			<outputDirectory>../../museum-micro-gateway-launcher/etc/lib</outputDirectory>
+			<directory>${project.build.directory}/dependency</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+
+		</fileSet>
+		<fileSet>
+			<outputDirectory>../../museum-micro-gateway-launcher/etc/lib</outputDirectory>
+			<directory>${basedir}</directory>
+			<includes>
+				<include>drools-core-6.0.1.Final-CHINGTECH.jar</include>
+			</includes>
+		</fileSet>
+
+		<!-- Launcher -->
+		<fileSet>
+			<outputDirectory>../../museum-micro-gateway-launcher</outputDirectory>
+			<directory>${basedir}/../../museum-launcher/museum-micro-gateway-launcher</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+</assembly>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
+	default-lazy-init="false">
+
+	<description>Museum Engine Actor</description>
+	
+	<import resource="classpath*:META-INF/spring/framework-actor.xml"/>
+	
+	<bean id="museumActorSystem" class="com.qingruan.framework.actor.spring.factory.ActorSystemFactoryBean">
+		<property name="name" value="museum"/>
+		<property name="configName" value="museum-engine"/>
+	</bean>
+	
+	<bean id="actorMVCBootstrap" class="com.qingruan.framework.actor.mvc.ActorMVCBootstrap" lazy-init="false">
+		<property name="actorSystem" ref="museumActorSystem"></property>
+		<property name="actorCfgLocation" value="${actor.cfg.location}"></property>
+	</bean>
+	
+<!-- 	<bean class="com.baoyun.pcrf.engine.actor.EngineSupervisor" scope="prototype"></bean> -->
+	<bean class="com.qingruan.framework.actor.mvc.SupervisorSupport" scope="prototype"></bean>
+	
+	<bean id="actorPathLoader" class="com.qingruan.framework.actor.mvc.util.ActorPathLoader">
+		<property name="actorSystem" ref="museumActorSystem"></property>
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+form#js-validate
+	.well-small.well.well-bgwhite
+		blockquote
+			h3 Tips:
+			p This function is used for blablablablablablablablablabla
+
+		//h4.margin-top-bottom-small Input attributes
+		ul.unstyled
+			li
+				label Name
+				input.required(type="text")
+				.help-block This is name
+			li.control-group.error
+				label Name
+				input(type="text")
+				.help-inline Eror here
+			li
+				label Choose it
+				select.js-select
+					option a
+					option b
+			
+		
+				
+	.form-actions
+		button.btn.btn-large.btn-primary(type="submit") Submit
+		button.btn.btn-large Cancel

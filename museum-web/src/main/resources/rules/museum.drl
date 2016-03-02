@@ -1,0 +1,20 @@
+#定义需要引入的类
+import com.qingruan.museum.domain.models.MuseumDomain;
+#定义全局的Service
+global com.qingruan.museum.engine.service.engine.rules.impl.RuleConditionServiceImpl ruleConditionServiceImpl;
+global com.qingruan.museum.engine.service.engine.rules.impl.RuleActionServiceImpl ruleActionServiceImpl;
+
+
+
+#测试博物馆项目Demo
+rule "museum test"
+ # 最高优先级
+	salience 19
+	no-loop true
+	when
+	    eval(ruleConditionServiceImpl.isTrue()==true);
+	then
+	    System.out.println("测试博物馆项目Demo is running");
+	    ruleActionServiceImpl.run();
+end
+

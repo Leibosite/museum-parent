@@ -1,0 +1,43 @@
+#testtest
+
+span.badge #1
+.btn-group#constraints-element(style="display:inline-block")
+	button.btn.btn-small.dropdown-toggle(data-toggle="dropdown")
+		|Choose a constraints 
+		span.caret
+		input(type="hidden", name="constraint-type",style="display:none")
+	ul.dropdown-menu
+		li
+			a(href="#",pma-oper-type="OBJECT") Ipcan session
+		li
+			a(href="#",is-service="true",param-data="a,b,c") Is Golden User
+
+		li.dropdown-submenu
+			a(href="#",pma-oper-type="OBJECT") Usage record
+			ul.dropdown-menu
+				li
+					a(href="#",pma-oper-type="INTEGER") Downlink
+				li
+					a(href="#",pma-oper-type="LONG") Uplink
+				li.dropdown-submenu
+					a(href="#",pma-oper-type="OBJECT") TotalLink
+					ul.dropdown-menu
+						li
+							a(href="#",pma-oper-type="STRING") asdfasdf
+							a(href="#",pma-oper-type="ENUM") asdfsdf
+
+//-.btn-group(style="display:inline-block")
+	button.btn.btn-mini.btn-warning.dropdown-toggle(data-toggle="dropdown")
+		i.icon-white.icon-hand-up
+		span.caret
+		input(type="hidden", name="constraint-type",style="display:none")
+	ul.dropdown-menu
+		li
+			a(href="#",pma-oper-type="OBJECT") Ipcan session
+
+
+
+
+
+a.btn-danger.btn.btn-mini.js-close-btn(style="position:absolute;right:1em;top:11px;")
+	i.icon-minus-sign.icon-white

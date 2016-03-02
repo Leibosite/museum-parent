@@ -1,0 +1,54 @@
+form#js-validate.pma-form
+	.well-small.well.well-bgwhite
+		blockquote
+			h3 Tips:
+			p Set up the policy.Just click !
+
+		.form-inline
+			.input-prepend
+				span.add-on 
+					i.icon-edit
+					| &nbsp;Policy Name
+				input.input-medium.required(type="text")
+			.input-prepend
+				span.add-on
+					i.icon-circle-arrow-up
+					| &nbsp;Precedence
+				input.input-medium.digits(type="text")
+		
+		hr
+
+		#constraints-block.margin-top-bottom.constraints-block
+			h3.policy-title Constraints
+				a#add-constraint(href="#",data-toggle="tooltip",title="Add constraints")
+					i.icon-plus-sign.icon-white
+			//- #constraints-list.constraints-content
+				//- include form-rule-constraints-domain
+			//- #constraints-list-2.constraints-content
+			//- 	include form-rule-constraints-method
+		hr
+		#executions-block.margin-top-bottom.executions-block
+			h3.policy-title Executions
+				a#add-execution(href="#",data-toggle="tooltip",title="Add executions")
+					i.icon-plus-sign.icon-white
+			//- #constraints-list-2.constraints-content
+			//- 	include form-rule-executions
+
+		
+	.form-actions
+		button.btn.btn-large.btn-primary(type="submit") Submit
+		button.btn.btn-large Cancel
+
+
+
+			//#constraints-add
+				.btn-group.margin-top-bottom-small
+					button.btn.disabled.btn-success.btn-large(style="color:white;") Constraints
+					a.btn.btn-large.btn-success
+						span
+							i.icon-plus-sign.icon-white
+			//.btn-group.margin-top-bottom-small
+				button.btn.disabled.btn-info.btn-large(style="color:white;") Executions
+				a.btn.btn-large.btn-info
+					span
+						i.icon-plus-sign.icon-white

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>museum-gateway</artifactId>
+		<groupId>com.qingruan.museum.gateway</groupId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>museum-server-gateway</artifactId>
+	<name>Museum :: Module :: Gateway::Server-GateWay</name>
+	<dependencies>
+	 
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-nosql</artifactId>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.museum.gateway.common</groupId>
+			<artifactId>museum-gateway-common</artifactId>
+		</dependency>
+	</dependencies>
+	<!-- 第一步：打包为jar文件 第二步：拷贝依赖文件 第三步：生成发布zip. -->
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>*.properties</exclude>
+						<exclude>logback*.xml</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>compile</includeScope>
+							<includeScope>runtime</includeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>${basedir}/gateway-assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,26 @@
+doctype
+html
+	head
+		include includes/meta
+	body.container
+		.row-fluid.margin-top-bottom
+			include includes/header
+		.row-fluid
+			.span3.well(style="padding: 8px 0;")
+				include includes/sidebar
+			.span9
+				include includes/breadcrumb
+				.well
+					h2(style="position:relative")
+						|Current Policy Component:CCRI
+						//span.oper-block-title.btn-group
+							a.btn.btn-mini.btn-warning
+								.icon-minus-sign.icon-white
+							a.btn.btn-mini.btn-danger
+								.icon-trash.icon-white
+					hr
+					//include includes/form-rule
+					include includes/form-rule
+
+		.row-fluid
+

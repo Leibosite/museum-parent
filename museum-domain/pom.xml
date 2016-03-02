@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>museum-parent</artifactId>
+		<groupId>com.qingruan.museum</groupId>
+		<version>4.0.0</version>
+	</parent>
+	<artifactId>museum-domain</artifactId>
+	<version>${museumdomain.version}</version>
+	<packaging>jar</packaging>
+	<name>Museum :: Module :: Domain</name>
+
+	<prerequisites>
+		<maven>3.0.0</maven>
+	</prerequisites>
+
+	<dependencies>
+		<!-- museum begin -->
+		<!-- <dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-pma</artifactId>
+		</dependency>
+		 -->
+		
+		<!-- museum end -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<!-- json begin -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<!-- json end -->
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<!-- eclipse plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+
+			<!-- source attach plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+	

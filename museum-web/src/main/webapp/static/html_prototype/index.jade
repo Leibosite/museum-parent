@@ -1,0 +1,22 @@
+doctype 
+html
+	head
+		include includes/meta
+	body.container
+		.row-fluid.margin-top-bottom
+			include ./includes/header
+		.row-fluid
+			.span3.well(style="padding: 8px 0;")
+				include ./includes/sidebar
+			.span9
+				include ./includes/breadcrumb
+				.well
+					h2 Service Component List
+						a.btn.btn-mini.btn-primary(style="margin-left:20px")
+							i.icon-plus-sign.icon-white
+					hr
+					include ./includes/list-search-form
+					include ./includes/list-table
+					include ./includes/pagination
+		.row-fluid
+

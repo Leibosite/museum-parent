@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<supervisor name="rx">
+		<actor name="route" class="com.baoyun.pcrf.engine.actor.stack.SignalingDomainRouteActor">
+			<parameter name="zeroMQReceiveEndpoint" value="${rx.receiveEndpoint}" />
+	
+			<forward name="CCR#INITIAL_REQUEST" ref-name="rx.establish" />
+			<forward name="CCR#UPDATE_REQUEST" ref-name="rx.update" />
+			<forward name="CCR#TERMINATION_REQUEST" ref-name="rx.terminate" />
+		</actor>
+	
+		<actor name="send" class="com.baoyun.pcrf.engine.actor.DomainSendActor">
+			<parameter name="zeroMQSendEndpoint" value="${rx.sendEndpoint}" />
+		</actor>
+	
+		<actor name="establish" class="com.baoyun.pcrf.engine.service.workflow.RxEstablishWorkflow" />
+	
+		<actor name="update" class="com.baoyun.pcrf.engine.service.workflow.RxUpdateWorkflow" />
+	
+		<actor name="terminate" class="com.baoyun.pcrf.engine.service.workflow.RxTerminateWorkflow" />
+	
+		<actor name="asr" class="com.baoyun.pcrf.engine.service.workflow.RxAsrWorkflow" />
+	
+		<actor name="rar-deactive-flow" class="com.baoyun.pcrf.engine.service.workflow.RarDeactiveFlowsWorkFlow" />
+		
+		<actor name="report-usage-monitoring" class= "com.baoyun.pcrf.engine.service.workflow.RxReportUsageMonitoringWorkFlow" />
+		
+		<actor name="sta" class= "com.baoyun.pcrf.engine.service.workflow.RxStaWorkflow" />
+		
+	</supervisor>
+</actor-system>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE actor-config PUBLIC
+        "-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+        "http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_1.dtd">
+
+<actor-system>
+    <supervisor name="gx">
+        <actor name="route" class="com.baoyun.pcrf.engine.actor.stack.SignalingDomainRouteActor"
+               dispatcher="gx-route-dispatcher"
+               from-config="true">
+            <parameter name="zeroMQReceiveEndpoint" value="${gx.receiveEndpoint}" />
+
+            <forward name="CCR#INITIAL_REQUEST" ref-name="gx.establish" />
+            <forward name="CCR#UPDATE_REQUEST" ref-name="gx.update" />
+            <forward name="CCR#TERMINATION_REQUEST" ref-name="gx.terminate" />
+            <forward name="RAA" ref-name="gx.raa" />
+        </actor>
+
+        <actor name="send" class="com.baoyun.pcrf.engine.actor.DomainSendActor"
+               dispatcher="gx-send-dispatcher"
+               from-config="true" >
+            <parameter name="zeroMQSendEndpoint" value="${gx.sendEndpoint}" />
+        </actor>
+
+        <actor name="establish"
+               class="com.baoyun.pcrf.engine.service.workflow.GxEstablishWorkflow"
+               dispatcher="gx-establish-dispatcher"
+               from-config="true" />
+
+        <actor name="update"
+               class="com.baoyun.pcrf.engine.service.workflow.GxUpdateWorkflow"
+               dispatcher="gx-update-dispatcher"
+               from-config="true" />
+
+        <actor name="terminate"
+               class="com.baoyun.pcrf.engine.service.workflow.GxTerminateWorkflow"
+               dispatcher="gx-terminate-dispatcher"
+               from-config="true" />
+
+        <actor name="raa" class="com.baoyun.pcrf.engine.service.workflow.RaaWorkflow" />
+
+        <actor name="rar-synchronizer" class="com.baoyun.pcrf.engine.service.workflow.GxRarSynchronizer" />
+
+        <actor name="rar-ocs-control" class="com.baoyun.pcrf.engine.service.workflow.RarOcsControlWorkflow" />
+
+        <actor name="task-rar" class="com.baoyun.pcrf.engine.service.workflow.GxTaskRarWorkflow" />
+
+        <actor name="rar-kick-off" class="com.baoyun.pcrf.engine.service.workflow.RarKickOffWorkflow" />
+
+        <actor name="rar-session-heart-beat" class="com.baoyun.pcrf.engine.service.workflow.RarSessionHeartBeatWorkflow" />
+    </supervisor>
+</actor-system>

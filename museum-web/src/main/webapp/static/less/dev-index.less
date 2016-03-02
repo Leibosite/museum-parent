@@ -1,0 +1,273 @@
+@import "variables.less";
+@import "mixins.less";
+
+.margin-top-bottom{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+.top-logo{
+	width:86px;
+	height:65px;
+}
+
+.margin-top-bottom-small{
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+span.navi-item{
+	font-size: 18px;
+	line-height: 27px;
+	display: block;
+	font-weight: bold;
+	color: inherit;
+	text-rendering: optimizelegibility;
+}
+span.navi-item-sub{
+	font-size:@baseFontSize;
+	color:@grayLight;
+}
+
+h4.search-title{
+	color:@white;
+}
+
+div.TODO{
+	h3{
+		color:@grayLight;
+	}
+	dd{
+		position:relative;
+	}
+	span.group-wrapper{
+		display:inline-block;
+		position:relative;
+		top:-2px;
+	}
+	ul.task-list{
+		&>li{
+			position: relative;
+			line-height:24px;
+			span.sign{
+				position: absolute;
+				top:2px;
+				left:-18px;
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				*margin-right: .3em;
+				line-height:22px;
+				vertical-align: text-top;
+				// background-position: 14px 14px;
+				background-repeat: no-repeat;
+			}
+			&.ok{
+				list-style: none;
+				span.sign{
+					background-image: url("@{iconSpritePath}");
+					background-position: -288px 0;
+				}
+			}
+		}
+
+		ul.sub-list{
+			list-style:none;
+			margin:16px 0 16px 0px;
+			&>li{
+				position: relative;
+				span.spec{
+					color:@grayLight;
+					margin:0 10px;
+					label{
+						color:black;
+						font-weight:bold;
+						margin-right:4px;
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+
+	
+	.task-status{
+		padding:0 8px 0 0;
+	}
+}
+.oper-block-list{
+	margin-left:8px;
+	position: absolute;
+	top: 0px;
+}
+
+.oper-block-title{
+	margin-left:8px;
+	position: absolute;
+	bottom: 6px;
+}
+
+.js-disabled{
+  position:relative;
+}
+.js-disabled-mask{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  // filter:alpha(opacity=50,finishopacity=50,style=3);/*IE*/
+  -moz-opacity:0.2; /*MOZ , FF*/
+  opacity:0.2; /*CSS3, FF1.5*/
+	background-color: @blueDark;
+}
+
+.js-disabled-mask-transparent{
+	position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+	background-color: transparent;
+	.loading{
+		background-image:none;
+	}
+}
+.disabled{
+	color:@grayLight;
+}
+
+.loading{
+	position:absolute;
+	height:11px;
+	width:16px;
+	background-image:url('../img/loading.gif');
+}
+
+.complete_items{
+	color:@grayLight;
+}
+
+.status-disabled{
+	color:#D14;
+}
+
+//form
+.search-form-style{
+	background-color:@grayLight;
+}
+
+form ul.unstyled > li{
+	margin-bottom:10px;
+	position:relative;
+	label{
+		line-height:20px;
+		margin-bottom:0px;
+	}
+}
+
+// statistic页面样式
+ul.main_statistic{
+	margin-top:8px;
+	li{
+		font-size:14px;
+		// margin-bottom:4px;
+	}
+	a{
+		font-size:16px;
+	}
+}
+ul.sub_statistic{
+	li{
+		font-size:12px;
+		// margin-top:8px;
+		margin-right:20px;
+		margin-bottom:0px;
+		// margin-bottom:0px;
+		float:left;
+		// color:@grayLight;
+	}
+}
+
+//tab
+.todo-tab{
+	margin:0px;
+}
+
+.todo-tab-content{
+	border:1px solid #DDD;
+	border-top:0px;
+}
+.tab-pane{
+	padding:19px;
+}
+
+
+// for PMA Constraints & 
+.label-large{
+	display:inline-block;
+	font-size:14px;
+	padding:8px;
+	margin:8px 0;
+}
+
+.sub-attributes a{
+	display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: @baseLineHeight;
+  color: @dropdownLinkColor;
+  white-space: nowrap;
+  &:hover{
+  	text-decoration: none;
+	  color: @dropdownLinkColorHover;
+	  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  }
+}
+
+.popover-content{
+	padding:4px;
+}
+
+
+
+// label-extention
+.constraints-content{
+	// margin-left: 3em;
+	margin:0.3em 0 .6em 3em;
+	background-color: @grayLighter;
+	.border-radius(@borderRadiusLarge);
+	padding:8px 1em;
+	position:relative;
+	> .badge{
+		position: absolute;
+		background-color: #999;
+		left:-38px;
+		top:15px;
+	}
+}
+
+//large-button-extention
+.btn-large{
+	font-size:14px !important;
+}
+
+.constraints-block{
+	background-color: rgb(171,205,183);
+	.border-radius(@borderRadiusLarge);
+	// .opacity(80);
+	padding:.1px 10px;
+	position: relative;
+}
+
+.executions-block{
+	background-color: rgb(118,180,200);
+	.border-radius(@borderRadiusLarge);
+	// .opacity(70);
+	padding:4px 10px;
+}
+.policy-title{
+	color:white;
+	padding-left:4px;
+}

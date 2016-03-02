@@ -1,0 +1,33 @@
+{
+    "/museum/pma/policyGroup/list": "listPolicyGroup",
+    "/museum/pma/policyGroup/find": "findPolicyGroup",
+    "/museum/pma/policyGroup/create": "createPolicyGroup",
+    "/museum/pma/policyGroup/findOne": "findOnePolicyGroup",
+    "/museum/pma/policyGroup/edit": "editPolicyGroup",
+    "/museum/pma/policyGroup/delete": "deletePolicyGroup",
+    "/museum/pma/policy/show": "showPolicy",
+    "/museum/pma/policy/find": "findPolicy",
+    "/museum/pma/policy/create": "createPolicy",
+    "/museum/pma/policy/findOne": "findOnePolicy",
+    "/museum/pma/policy/edit": "editPolicy",
+    "/museum/pma/policy/delete": "deletePolicy",
+    "/museum/pma/policy/enable": "enablePolicy",
+    "/museum/pma/policy/disable": "disablePolicy",
+    "/museum/pma/fetchPolicy": "fetchPolicy",
+    "/museum/pma/fetchSmsTemplate": "fetchSmsTemplate",
+    "/museum/pma/fetchEmailTemplate": "fetchEmailTemplate",
+    "/museum/pma/fetchArea": "fetchArea",
+    "/museum/pma/fetchMonitorPoint": "fetchMonitorPoint",
+    "/museum/pma/fetchMonitorStation": "fetchMonitorStation",
+    "/museum/pma/fetchConstantTh": "fetchConstantTh",
+    "/museum/pma/fetchShowCase": "fetchShowCase",
+    "/museum/pma/processOperatingMode": "processOperatingMode",
+    "/museum/pma/historyRecordReport": "historyRecordReport",
+
+     "/museum/api/constantTh/settingContantTH": "settingContantTH",
+
+    "/museum/api/sensor/engineUpdateSensorMacList": "engineUpdateSensorMacList",
+    "/museum/api/sensor/engineUpdateNetTopologyList": "engineUpdateNetTopologyList",
+
+    "token":"token"
+}

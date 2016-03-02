@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE actor-config PUBLIC
+	"-//Baoyun Framework//DTD Actor Configuration 1.0//EN"
+	"http://mvc.actor.akka.framework.baoyun.com/dtd/actor-config_1_0.dtd">
+
+<actor-system>
+	<supervisor name="cdrmsg">
+		<actor name="send" 
+			class="com.baoyun.pcrf.engine.userbehavior.MessageProcessActor"
+			dispatcher="cdrmsg-send-dispatcher" 
+			from-config="true">
+				<parameter name="cdrMsgAddr" value="${cdr_msg_addr}" />
+		</actor>
+	</supervisor>
+</actor-system>

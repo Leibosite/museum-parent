@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+
+	<parent>
+		<artifactId>museum-parent</artifactId>
+		<groupId>com.qingruan.museum</groupId>
+		<version>4.0.0</version>
+	</parent>
+	<name>Museum :: Module :: Web</name>
+	<artifactId>museum-web</artifactId>
+	<!--<version>${museumweb.version}</version> -->
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<!-- 依赖项定义 -->
+	<dependencies>
+		<!-- axis web service -->
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- poi导出Excel -->
+		<!-- <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi-scratchpad</artifactId> 
+			<version>3.7</version> </dependency> -->
+		<!-- drools读取drl文件 -->
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+		</dependency>
+		<!-- json -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.3</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<!-- websocket 引入 -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.0.24.Final</version>
+		</dependency>
+		<!-- struts2 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.1.8.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>tools</artifactId>
+					<groupId>com.sun</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- mock -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+
+		</dependency>
+		<dependency>
+			<groupId>org.springside</groupId>
+			<artifactId>springside-core</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+
+		<!-- axis web service -->
+		<dependency>
+			<groupId>org.perf4j</groupId>
+			<artifactId>perf4j</artifactId>
+		</dependency>
+
+		<!-- museum begin -->
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-framework</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-domain</artifactId>
+		</dependency>
+		<dependency>
+			<artifactId>hessian</artifactId>
+			<groupId>com.caucho</groupId>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-dao</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-pma</artifactId>
+		</dependency>
+      <!-- 
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-agent</artifactId>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-highcharts</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.museum</groupId>
+			<artifactId>museum-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qingruan.framework</groupId>
+			<artifactId>framework-webserver</artifactId>
+		</dependency>
+
+		<!-- museum end -->
+
+		<!-- AOP begin -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+		<!-- AOP end -->
+
+		<!-- PERSISTENCE begin -->
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+		<!-- spring data access -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+		</dependency>
+
+		<!-- WEB begin -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- WEB end -->
+
+		<!-- SECURITY begin -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<!-- SECURITY end -->
+
+		<!-- JSR303 BeanValidator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+		<!-- JSON begin -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+		</dependency>
+		<!-- JSON end -->
+
+		<!-- LOGGING begin -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+		</dependency>
+		<!-- LOGGING end -->
+
+		<!-- GENERAL UTILS begin -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+
+		</dependency>
+		<!-- jetty -->
+		<dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jsp</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- TEST end -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-digester3</artifactId>
+			<version>3.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>asm</groupId>
+					<artifactId>asm</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- GENERAL UTILS end -->
+
+		<!-- embed tomcat begin -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-logging-juli</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper-el</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.9</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.esotericsoftware.reflectasm</groupId>
+			<artifactId>reflectasm</artifactId>
+			<version>1.09</version>
+		</dependency>
+
+		<!-- embed tomcat begin -->
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+					<exclude>**/*.aj</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>etc/**/*.*</exclude>
+					<exclude>etc/*.*</exclude>
+					<exclude>etc</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- compiler插件, 设定JDK版本 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java_source_version}</source>
+					<target>${java_source_version}</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+
+			<!-- 
+				第一步：拷贝资源到classes 
+				 第二步：打包为jar文件 
+				 第三步：拷贝依赖文件 
+				 第四步：生成发布zip. 
+			-->
+
+			<!-- 将web文件(.css/.js/.jsp等)拷贝到target/classes/META-INF/resources下 -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes/META-INF/resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/webapp</directory>
+									<excludes>
+										<exclude>**/WEB-INF/web.xml</exclude>
+										<exclude>**/WEB-INF/classes</exclude>
+										<exclude>**/WEB-INF/lib</exclude>
+									</excludes>
+								</resource>
+							</resources>
+							<includeEmptyDirs>false</includeEmptyDirs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>application.properties</exclude>
+						<exclude>FTPImportMapper.properties</exclude>
+						<exclude>logback.xml</exclude>
+						<exclude>tomcat.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>compile</includeScope>
+							<includeScope>runtime</includeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>${basedir}/web-assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+	

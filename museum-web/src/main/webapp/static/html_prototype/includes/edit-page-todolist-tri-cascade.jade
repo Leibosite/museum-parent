@@ -1,0 +1,59 @@
+.well
+	h2(style="position:relative")
+		|New Service Component
+		span.oper-block-title.btn-group
+			a.btn.btn-mini.btn-warning
+				span.icon-minus-sign.icon-white
+			a.btn.btn-mini.btn-danger
+				span.icon-trash.icon-white
+	hr
+	.TODO
+		h3 TODO
+		ul.margin-top-bottom.task-list
+			li.ok(title="Complete")
+				span.sign
+				|Config default EPS Bearer QoS
+				span.oper-block-list.btn-group(style="display:inline-block")		
+					a.btn.btn-mini(title="Edit",data-toggle="modal",href="#my-modal")
+						span.icon-pencil
+
+				//ul.sub-list
+					li
+						span.spec
+							label Limit Group Name: 
+							|hh
+						span.spec
+							label Status:
+							|ok
+						span.spec
+							span.oper-block-list.btn-group(style="display:inline-block")		
+								a.btn.btn-mini(title="Edit",data-toggle="modal",href="#my-modal")
+									span.icon-plus-sign
+									|&nbsp;Add Limit Info
+				.complete_items
+					dl.dl-horizontal.margin-top-bottom-small
+						dt Group 1:123
+						dd
+							span.btn-group.group-wrapper		
+								a.btn.btn-mini Add limit info
+							table.table.table-bordered.table-condensed(style="width:80%;background-color:white")
+								tr
+									th Limit Name
+									th Type
+									th Operation
+								tr
+									td asdfasdf
+									td Limit By time
+									td
+										a Edit
+										a Delete
+
+
+						
+			li.ok(title="Complete")
+				span.sign
+				|Config default EPS Bearer QoS
+				span.oper-block-list.btn-group(style="display:inline-block")		
+					a.btn.btn-mini(title="Edit",data-toggle="modal",href="#my-modal")
+						span.icon-pencil
+

@@ -1,0 +1,38 @@
+<project name="app Launcher" default="appLauncher" basedir=".">
+
+	<!-- Set the application home to the parent directory of this directory -->
+	<property name="app.home" location="${basedir}/.." />
+
+	<!-- Build the classpath relative to the application home -->
+	<path id="base.class.path">
+		<pathelement path="${app.home}/etc" />
+		<fileset dir="${app.home}/lib" includes="*.jar" />
+		<fileset dir="${app.home}/etc/lib" includes="*.jar" />
+	</path>
+
+	<!-- Build the sysproperties relative to the application home -->
+	<syspropertyset id="base.sys.properties">
+		<sysproperty key="app.home" file="${app.home}" />
+	</syspropertyset>
+
+	<!-- Build the standard jvmargs -->
+	<jvmargset id="base.jvm.args">
+		<jvmarg value="-DappName=${appName}" />
+		<jvmarg value="-Xms64M" />
+		<jvmarg value="-Xmx128M" />
+		<jvmarg value="-XX:PermSize=32M" />
+		<jvmarg value="-XX:MaxPermSize=64M" />
+		<jvmarg value="-Dcom.sun.management.jmxremote=true" />
+		<jvmarg value="-Dcom.sun.management.jmxremote.port=19094" />
+		<jvmarg value="-Dcom.sun.management.jmxremote.ssl=false" />
+		<jvmarg value="-Dcom.sun.management.jmxremote.authenticate=false" />
+	</jvmargset>
+
+	<target name="appLauncher">
+		<launch classname="${main}">
+			<jvmargset refid="base.jvm.args" />
+			<syspropertyset refid="base.sys.properties" />
+			<classpath refid="base.class.path" />
+		</launch>
+	</target>
+</project>
